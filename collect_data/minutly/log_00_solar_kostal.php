@@ -15,25 +15,6 @@ ini_set("display_errors", 1);
 
 require_once __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'credentials.php';
 
-/*
-//IP of kostal
-$IPAdresse_WR = '192.168.2.10';
-//mysql settings
-$mysql_PV_data_dsn = "mysql:host=127.0.0.1;port=3307;dbname=SolarAnlage;charset=utf8mb4";
-$mysql_PV_data_username="SolarAnlage";
-$mysql_PV_data_pw="Commander";
-$mysql_PV_data_tablename_WR="WR_Daten";
-$mysql_PV_data_options = [
-	//PDO::ATTR_EMULATE_PREPARES   => false, // turn off emulation mode for "real" prepared statements
-	PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION, //turn on errors in the form of exceptions
-	//PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC, //make the default fetch be an associative array
-];
-*/
-
-
-
-
-
 $dataValues=array();
 //Leistungswerte
 $Entries1=array('BatVoltage' => '33556226',

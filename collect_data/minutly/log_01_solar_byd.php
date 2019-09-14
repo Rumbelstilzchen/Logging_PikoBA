@@ -31,24 +31,6 @@ function load_DomXPath($html){
 
 require_once __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'credentials.php';
 
-/*
-//IP of BYD
-$IPAdresse_BYD = '192.168.2.11';
-
-
-//mysql settings
-$mysql_PV_data_dsn = "mysql:host=127.0.0.1;port=3307;dbname=SolarAnlage;charset=utf8mb4";
-$mysql_PV_data_username="SolarAnlage";
-$mysql_PV_data_pw="Commander";
-$mysql_PV_data_tablename_BYD="BYD_Daten"; 
-$mysql_PV_data_options = [
-	//PDO::ATTR_EMULATE_PREPARES   => false, // turn off emulation mode for "real" prepared statements
-	PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION, //turn on errors in the form of exceptions
-	//PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC, //make the default fetch be an associative array
-];*/
-
-
-
 
 $html="http://".$IPAdresse_BYD."/asp/StatisticInformation.asp";
 $xp=load_DomXPath($html);
