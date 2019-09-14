@@ -15,6 +15,7 @@ ini_set("display_errors", 1);
 
 require_once __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'credentials.php';
 
+
 $dataValues=array();
 //Leistungswerte
 $Entries1=array('BatVoltage' => '33556226',

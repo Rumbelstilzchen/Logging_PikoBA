@@ -32,6 +32,7 @@ function load_DomXPath($html){
 require_once __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'credentials.php';
 
 
+
 $html="http://".$IPAdresse_BYD."/asp/StatisticInformation.asp";
 $xp=load_DomXPath($html);
 $BYD_data['time_sec']=time();
