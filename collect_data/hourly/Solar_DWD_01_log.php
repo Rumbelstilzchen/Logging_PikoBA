@@ -2,8 +2,6 @@
 ini_set("display_errors", 1); 
 error_reporting( E_ALL );
 
-require_once __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'credentials.php';
-
 function getHumidity($T, $TD) {
   if (is_numeric($T) && is_numeric($TD)) {
     $T = $T - 273.15;
@@ -36,17 +34,10 @@ function getParamArray($rootObj, $id) {
 
 
 
-$DWD_station_IDs=array('P257','K4087','N3420');
+require_once __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'credentials.php';
 
 
-
-
-
-
-
-
-
-    $alias = array(
+$alias = array(
 //      'TN' => 'Tn',       // Minimum temperature - within the last 12 hours
 //      'TX' => 'Tx',       // Maximum temperature - within the last 12 hours
       'TTT' => 'Temperature',      // Temperature 2m above surface
