@@ -4,6 +4,7 @@
 
 //kostal
 $IPAdresse_WR = '192.168.2.10';
+$maxEinspeisen=5320 //70% Der installierten Leistung Wert laut Inbetriebnahme
 $mysql_PV_data_tablename_WR="WR_Daten";
 $mysql_PV_data_tablename_WRhourly="aggregate_WR_Daten_hourly";
 $mysql_PV_data_tablename_WRdaily="aggregate_WR_Daten_daily";
@@ -21,6 +22,10 @@ $mysql_PV_data_tablename_BYD="BYD_Daten";
 $DWD_station_IDs=array('P257','K4087','N3420');
 $mysql_PV_data_tablename_DWD="DWD_Daten";
 $mysql_PV_data_tablename_DWDfactor="DWD_Rad_factor";
+
+//Solar-Module
+$PV_area=37.65; //active area in m²
+$PV_efficency=0.187 //efficiency of PV modules in % (10%=0.1)
 
 //KOstal/BYD mysql settings
 $mysql_PV_data_DB_name="SolarAnlage";

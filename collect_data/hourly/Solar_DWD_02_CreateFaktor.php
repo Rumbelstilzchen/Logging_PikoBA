@@ -23,7 +23,7 @@ from (
 		`$mysql_PV_data_DB_name`.`$mysql_PV_data_tablename_WRhourly`.`TIMESTAMP` AS `time`,
 		'PV Power' AS `metric`,
 		`$mysql_PV_data_DB_name`.`$mysql_PV_data_tablename_WRhourly`.`PV_kWh`*1000 AS `value`,
-		`$mysql_PV_data_DB_name`.`$mysql_PV_data_tablename_DWD`.`Rad1h` / 3.6 * 37.65 * 0.187 AS `Rad`
+		`$mysql_PV_data_DB_name`.`$mysql_PV_data_tablename_DWD`.`Rad1h` / 3.6 * $PV_area * $PV_efficency AS `Rad`
 		from (`$mysql_PV_data_DB_name`.`$mysql_PV_data_tablename_WRhourly`
 			join `$mysql_PV_data_DB_name`.`$mysql_PV_data_tablename_DWD` on ( TIMESTAMPADD(HOUR,1,`$mysql_PV_data_DB_name`.`$mysql_PV_data_tablename_WRhourly`.`TIMESTAMP`) = `$mysql_PV_data_DB_name`.`$mysql_PV_data_tablename_DWD`.`TIMESTAMP`))
 		where `$mysql_PV_data_DB_name`.`$mysql_PV_data_tablename_WRhourly`.`time_sec` >= (select `$mysql_PV_data_DB_name`.`$mysql_PV_data_tablename_DWD`.`time_sec` from `$mysql_PV_data_DB_name`.`$mysql_PV_data_tablename_DWD` order by `$mysql_PV_data_DB_name`.`$mysql_PV_data_tablename_DWD`.`time_sec` limit 1) - 3601 ) `T1`

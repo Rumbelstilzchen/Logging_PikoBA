@@ -7,6 +7,8 @@ ini_set("display_errors", 1);
 
 require_once __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'credentials.php';
 
+$maxEinspeisen_rounded=floor(maxEinspeisen*0.99)
+
 $sql="replace LOW_PRIORITY into $mysql_PV_data_tablename_WRhourly (time_sec,  TIMESTAMP, ChargeCycles, BatTemperature, HomeConsumptionSolar_kWh, HomeConsumptionBat_kWh, HomeConsumptionGrid_kWh, HomeConsumption_kWh, PV_kWh, ac_kWh, BatLaden_kWh, BatLaden_Frei_kWh, BatEntladen_kWh, Einspeisen_kWh)
 select
 round(min(time_sec),-1) as time_sec,
@@ -20,7 +22,7 @@ round(avg(AktHomeConsumption)/1000,13) as HomeConsumption_kWh,
 round(avg(dcPowerPV)/1000,13) as PV_kWh,
 round(avg(acPower)/1000,13) as ac_kWh,
 round(avg(BatPowerLaden)/1000,13) as BatLaden_kWh,
-round(avg(if(BatPowerLaden>0.1, if(EinspeisenPower>5300,BatPowerLaden,0)  +   if(EinspeisenPower<=5300 AND BatPowerLaden+EinspeisenPower>5300,BatPowerLaden+EinspeisenPower-5300,0),0))/1000,13) as BatLaden_Frei_kWh,
+round(avg(if(BatPowerLaden>0.1, if(EinspeisenPower>$maxEinspeisen_rounded,BatPowerLaden,0)  +   if(EinspeisenPower<=$maxEinspeisen_rounded AND BatPowerLaden+EinspeisenPower>$maxEinspeisen_rounded,BatPowerLaden+EinspeisenPower-$maxEinspeisen_rounded,0),0))/1000,13) as BatLaden_Frei_kWh,
 round(avg(BatPowerEntLaden)/1000,13) as BatEntladen_kWh,
 round(avg(EinspeisenPower)/1000,13) as Einspeisen_kWh
 FROM $mysql_PV_data_tablename_WR
